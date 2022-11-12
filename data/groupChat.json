@@ -1,0 +1,46 @@
+[{
+    "phone": "1234",
+    "name": "Adi",
+    "msg": "Mollit in non consequat ea et sunt non minim mollit anim veniam fugiat.",
+    "isByCurrentUser": false
+}, {
+    "phone": "5678",
+    "name": "Budi",
+    "msg": "Et nisi fugiat laboris dolor aliquip mollit.",
+    "isByCurrentUser": false
+}, {
+    "phone": "4321",
+    "name": "Me",
+    "msg": "Ad in ea cupidatat occaecat enim est qui ex proident officia do minim nisi.",
+    "isByCurrentUser": true
+}, {
+    "phone": "9012",
+    "name": "Cindi",
+    "msg": "Tempor culpa est nisi reprehenderit fugiat occaecat.",
+    "isByCurrentUser": false
+}, {
+    "phone": "9012",
+    "name": "Dodi",
+    "msg": "Reprehenderit officia consequat culpa culpa excepteur non quis sunt nulla proident quis ullamco quis nisi.",
+    "isByCurrentUser": false
+}, {
+    "phone": "9012",
+    "name": "Edi",
+    "msg": "Ad commodo culpa nisi nostrud sint fugiat.",
+    "isByCurrentUser": false
+}, {
+    "phone": "9012",
+    "name": "Dodi",
+    "msg": "Ullamco voluptate irure sunt excepteur dolor enim consectetur anim qui velit nulla et.",
+    "isByCurrentUser": false
+}, {
+    "phone": "9012",
+    "name": "Me",
+    "msg": "Est occaecat consectetur veniam aute esse.",
+    "isByCurrentUser": true
+}, {
+    "phone": "9012",
+    "name": "Adi",
+    "msg": "Voluptate labore exercitation non exercitation.",
+    "isByCurrentUser": false
+}]
