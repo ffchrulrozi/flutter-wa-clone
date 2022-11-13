@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:wa/src/controller/group_chat.dart';
 
 class GroupChat extends StatefulWidget {
   const GroupChat({Key? key}) : super(key: key);
@@ -10,6 +12,7 @@ class GroupChat extends StatefulWidget {
 }
 
 class _GroupChatState extends State<GroupChat> {
+  final Controller c = Get.put(Controller());
   late List<GroupChatModel> groupChatModels = List<GroupChatModel>.empty();
 
   Future<void> readJson() async {
@@ -44,7 +47,7 @@ class _GroupChatState extends State<GroupChat> {
             ),
           ),
           const SizedBox(width: 10),
-          const Text("C TIF")
+          Text("C TIF #${c.count}")
         ]),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),

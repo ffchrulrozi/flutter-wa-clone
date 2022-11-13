@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
-import '../groupChat.dart';
+import '../group_chat.dart';
 
-class HomeCallList extends StatefulWidget {
-  const HomeCallList({Key? key}) : super(key: key);
+class HomeStatusList extends StatefulWidget {
+  const HomeStatusList({Key? key}) : super(key: key);
 
   @override
-  State<HomeCallList> createState() => _HomeCallListState();
+  State<HomeStatusList> createState() => _HomeStatusListState();
 }
 
-class _HomeCallListState extends State<HomeCallList> {
-  late List<HomeCallListModel> homeCallListModels;
+class _HomeStatusListState extends State<HomeStatusList> {
+  late List<HomeStatusListModel> homeStatusListModels;
 
   Future<void> readJson() async {
     final String response =
-        await rootBundle.loadString("data/homeCallList.json");
+        await rootBundle.loadString("data/homeStatusList.json");
     Iterable<dynamic> json = jsonDecode(response);
     setState(() {
-      homeCallListModels = List<HomeCallListModel>.from(
-          json.map((model) => HomeCallListModel.fromJson(model)));
+      homeStatusListModels = List<HomeStatusListModel>.from(
+          json.map((model) => HomeStatusListModel.fromJson(model)));
     });
   }
 
   @override
   initState() {
     super.initState();
-    homeCallListModels = List<HomeCallListModel>.empty();
+    homeStatusListModels = List<HomeStatusListModel>.empty();
     readJson();
   }
 
@@ -35,7 +35,7 @@ class _HomeCallListState extends State<HomeCallList> {
     return ListView(
       children: <Widget>[
         Column(
-          children: homeCallListModels
+          children: homeStatusListModels
               .map<Widget>(
                 (v) => ListTile(
                   onTap: () {
@@ -49,19 +49,9 @@ class _HomeCallListState extends State<HomeCallList> {
                   title: Text(
                     v.name,
                     style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+                        fontWeight: FontWeight.bold, fontSize: 20),
                   ),
-                  subtitle: Row(
-                    children: [
-                      const Icon(
-                        Icons.call_received,
-                        color: Colors.red,
-                      ),
-                      Text("(${v.times}) ${v.date}")
-                    ],
-                  ),
+                  subtitle: Text(v.date),
                   leading: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: Image.network(
@@ -80,17 +70,15 @@ class _HomeCallListState extends State<HomeCallList> {
   }
 }
 
-class HomeCallListModel {
+class HomeStatusListModel {
   String name;
   String photo;
-  int status;
-  int times;
   String date;
 
-  HomeCallListModel(this.name, this.photo, this.status, this.times, this.date);
+  HomeStatusListModel(this.name, this.photo, this.date);
 
-  factory HomeCallListModel.fromJson(dynamic json) {
-    return HomeCallListModel(json['name'] as String, json['photo'] as String,
-        json['status'] as int, json['times'] as int, json['date'] as String);
+  factory HomeStatusListModel.fromJson(dynamic json) {
+    return HomeStatusListModel(json['name'] as String, json['photo'] as String,
+        json['date'] as String);
   }
 }
